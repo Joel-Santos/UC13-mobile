@@ -18,24 +18,31 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <Text>Calculadora de IMC</Text>
-      <TextInput 
+      <Text style={styles.title}>Calculadora de IMC</Text>
+
+      <TextInput
+        style={styles.input}
         placeholder='Peso (kg)'
         keyboardType='numeric'
         value={peso}
         onChangeText={setPeso}
       />
-      <TextInput 
+
+      <TextInput
+        style={styles.input}
         placeholder='Altura (cm)'
         keyboardType='numeric'
         value={altura}
         onChangeText={setAltura}
       />
-      <Button title="Calcular IMC" onPress={calcularIMC} />
-      <Text>
+
+      <View style={styles.buttonContainer}>
+        <Button title="Calcular IMC" onPress={calcularIMC} color="#4CAF50" />
+      </View>
+
+      <Text style={styles.result}>
         {resultado}
       </Text>
-
     </View>
   );
 }
@@ -43,8 +50,37 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f5f5',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 24,
+    color: '#333',
+  },
+  input: {
+    height: 50,
+    width: '100%',
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    backgroundColor: '#fff',
+    marginBottom: 20,
+    fontSize: 18,
+  },
+  buttonContainer: {
+    width: '100%',
+    marginBottom: 20,
+  },
+  result: {
+    marginTop: 20,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#333',
+    textAlign: 'center',
   },
 });
