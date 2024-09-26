@@ -1,3 +1,72 @@
+
+# Projeto React Native - Aula25-09
+
+Este projeto é uma calculadora com interface simples, desenvolvida em React Native, que permite ao usuário realizar operações matemáticas básicas e visualizar o resultado na tela.
+
+## Pré-requisitos
+
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
+- [GitHub Codespaces](https://docs.github.com/en/codespaces)
+- Acesso à internet para o uso do túnel e geração do QR code.
+
+## Estrutura do Projeto
+
+- `Calculadora.js`: Componente principal da aplicação, contendo a lógica da calculadora e o layout com todos os botões e display.
+- `styles`: Objeto de estilo com as configurações de layout.
+
+### Instruções para Configuração
+
+1. **Acessar o Codespace**:  
+   Entre no Codespace do repositório UC13-mobile já configurado.
+
+
+2. **Criar o Projeto Expo**:  
+   Para iniciar um novo projeto com o template blank, execute o seguinte comando:
+
+   ```bash
+   npx create-expo-app@latest calculadora --template blank
+   ```
+
+3. **Rodar o Projeto**:  
+   Entre na pasta do projeto `aula25-09` e execute o comando abaixo para iniciar o projeto:
+
+   ```bash
+   cd aula25-09
+   npx expo start --tunnel
+   ```
+
+   O Expo vai gerar um QR code. Use o aplicativo Expo Go no seu dispositivo móvel para escanear o QR code e testar o app.
+
+4. **Estruturar as Pastas**:
+    A seguinte estrutura foi adotada nesta aula
+```bash
+ aula25-09/
+│
+├── .expo/                     # Arquivos de configuração específicos do Expo
+├── assets/                    # Imagens e outros arquivos estáticos
+├── components/                # Componentes reutilizáveis (Calculadora.js)
+├── node_modules/              # Pacotes e dependências instaladas
+│
+├── .gitignore                 # Arquivos e pastas a serem ignorados pelo Git
+├── App.js                     # Arquivo principal da aplicação
+├── app.json                   # Configurações do projeto Expo
+├── babel.config.js            # Configurações do Babel para transpilar o código
+├── package-lock.json          # Lockfile de dependências (npm)
+├── package.json               # Dependências e scripts do projeto
+└── README.md                  # Documentação do projeto
+```
+
+## Estrutura do Calculadora.js
+
+O arquivo `Calculadora.js` contém a implementação da calculadora com interface. Ele utiliza o hook `useState` para controlar o valor exibido no display e as operações inseridas pelo usuário. O layout é gerado utilizando componentes nativos do React Native como `View`, `Text`, e `TouchableOpacity`.
+
+### Funcionalidades:
+
+- **Display de Expressão**: Uma área de texto que mostra a expressão matemática atual e o resultado.
+- **Botões de Operações**: Botões para inserir números (`0-9`), operações (`+`, `-`, `*`, `/`), ponto (`.`), limpar (`C`), apagar (`<`), e calcular (`=`).
+- **Validação de Expressão**: Se a expressão for inválida ao pressionar `=`, uma mensagem de erro será exibida.
+
+```javascript
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
@@ -160,4 +229,31 @@ const styles = StyleSheet.create({
 });
 
 export default Calculadora;
+```
 
+## Estrutura do App.js
+
+```javascript
+import React from 'react';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import Calculator from './components/Calculadora';
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Calculator />
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#282c34',
+  },
+});
+
+export default App;
+```
+
+Neste código, criamos uma calculadora simples com interface, onde o usuário pode realizar operações matemáticas básicas e visualizar o resultado no display.

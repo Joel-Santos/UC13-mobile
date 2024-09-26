@@ -1,11 +1,10 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import Calculator from './components/Calculadora';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" />
       <Calculator />
     </SafeAreaView>
   );
