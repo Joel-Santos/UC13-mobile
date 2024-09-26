@@ -11,6 +11,12 @@ Cada pasta no repositório representa uma aula ou atividade específica, contend
 
 - **aulaXX-XX**: Cada pasta de aula segue o formato `aulaDD-MM`, onde `DD` é o dia e `MM` é o mês em que a aula foi dada. Dentro de cada pasta, você encontrará os arquivos do projeto desenvolvido na aula correspondente, com código-fonte, componentes React Native, e qualquer outro recurso adicional utilizado.
 
+- [Aula 23-09](./aula23-09): Nesta aula, desenvolvemos um aplicativo que calcula o Índice de Massa Corporal (IMC). O usuário insere seu peso e altura e o aplicativo calcula o IMC.
+  
+- [Aula 24-09](./aula24-09): Nesta aula, desenvolvemos uma calculadora simples em React Native que permite ao usuário inserir expressões matemáticas e obter o resultado.
+  
+- [Aula 25-09](./aula25-09): Nesta aula, evoluímos a calculadora para uma versão mais completa com várias funcionalidades adicionais e melhorias no layout.
+
 ### Exemplos de Aulas
 
 #### Exemplo: - [Aula 24-09](./aula24-09):
