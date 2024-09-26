@@ -1,5 +1,6 @@
 # UC13-mobile
-UC do técnico em informática para internet (6° B)
+UC do técnico em informática para internet (6° B).
+
 Este repositório contém o conteúdo das aulas da UC13, onde trabalhamos com o desenvolvimento de aplicativos mobile utilizando React Native e Expo.
 
 ## Estrutura do Repositório
@@ -12,7 +13,7 @@ Cada pasta no repositório representa uma aula ou atividade específica, contend
 
 ### Exemplos de Aulas
 
-#### Exemplo: aula24-09
+#### Exemplo: - [Aula 24-09](./aula24-09):
 
 - **Descrição**: Nesta aula, desenvolvemos uma calculadora simples em React Native que permite ao usuário inserir expressões matemáticas e obter o resultado.
   
