@@ -38,7 +38,7 @@ Este projeto é uma calculadora com interface simples, desenvolvida em React Nat
    O Expo vai gerar um QR code. Use o aplicativo Expo Go no seu dispositivo móvel para escanear o QR code e testar o app.
 
 4. **Estruturar as Pastas**:
-    A seguinte estrutura foi adotada nesta aula
+  A seguinte estrutura foi adotada nesta aula:
 ```bash
  aula25-09/
 │
