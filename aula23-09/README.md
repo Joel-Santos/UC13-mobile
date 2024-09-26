@@ -1,94 +1,116 @@
-Projeto Calculadora de IMC em React Native
-Descrição do Projeto
-Este projeto é uma calculadora de IMC (Índice de Massa Corporal) construída com React Native e Expo. A aplicação permite ao usuário inserir seu peso e altura e calcular seu IMC com base nos dados fornecidos.
 
-Este projeto foi criado utilizando o GitHub Codespaces para facilitar o desenvolvimento em um ambiente online.
+# **README.md - Projeto Calculadora de IMC em React Native**
 
-Pré-requisitos
-GitHub account com acesso a Codespaces.
-Ambiente de desenvolvimento Expo CLI (instalado via npm).
-Passos para criação do projeto usando Codespaces
-Passo 1: Iniciando o Codespace
-Acesse o seu repositório UC13-mobile no GitHub.
-Clique no botão <> Code, e vá até a aba Codespaces.
-Clique em Create codespace on main para iniciar o ambiente de desenvolvimento.
-Passo 2: Instalação do Expo CLI
-No terminal do Codespace já aberto na pasta do seu repositório, instale o Expo CLI:
+## **Descrição do Projeto**
+Este projeto consiste em uma **calculadora de IMC (Índice de Massa Corporal)**, criada com **React Native** e utilizando o **Expo**. A aplicação permite que o usuário insira seu peso e altura para calcular e exibir seu IMC.
 
-bash
-Copiar código
-npm install -g expo-cli
-Isso instala o Expo CLI globalmente para criar e gerenciar projetos React Native de forma simples.
+O projeto foi desenvolvido dentro do ambiente **GitHub Codespaces**, aproveitando a conveniência de um ambiente de desenvolvimento baseado na nuvem.
 
-Passo 3: Inicialização do projeto
-No terminal, execute o seguinte comando para criar um novo projeto Expo vazio com o template "blank":
+---
 
-bash
-Copiar código
-npx create-expo-app@latest aula23-09 --template blank
-Isso irá criar a pasta aula23-09 dentro do repositório. Navegue para a pasta criada:
+## **Pré-requisitos**
 
-bash
-Copiar código
-cd aula23-09
-Passo 4: Estrutura do Projeto
-Arquivos importantes criados:
-App.js: Este arquivo contém toda a lógica do aplicativo React Native e será o foco das explicações a seguir.
-package.json: Gerencia as dependências do projeto, incluindo React Native e outros pacotes.
-Códificação Detalhada
-Arquivo: App.js
-Aqui está o código completo com explicações detalhadas linha por linha:
+- Conta no GitHub com acesso ao **Codespaces**.
+- Ambiente Expo CLI instalado.
 
-javascript
-Copiar código
+---
+
+## **Passos para configuração e criação do projeto usando Codespaces**
+
+### **Passo 1: Iniciando o Codespace**
+
+1. No repositório `UC13-mobile`, inicie um novo Codespace:
+   - Vá até o seu repositório no GitHub.
+   - Clique no botão **`<> Code`**, selecione a aba **`Codespaces`** e clique em **`Create codespace on main`**.
+
+2. Com o Codespace aberto, já estará no diretório do seu repositório. Você pode rodar os comandos no terminal.
+
+---
+
+### **Passo 2: Instalando o Expo CLI**
+
+1. No terminal do Codespace, instale o **Expo CLI**:
+
+   ```bash
+   npm install -g expo-cli
+   ```
+
+   Isso vai instalar o Expo CLI globalmente para gerenciar projetos React Native.
+
+---
+
+### **Passo 3: Criando o Projeto Expo**
+
+1. Crie o projeto Expo na pasta `aula23-09`:
+
+   ```bash
+   npx create-expo-app@latest aula23-09 --template blank
+   ```
+
+2. Navegue até a pasta criada:
+
+   ```bash
+   cd aula23-09
+   ```
+
+---
+
+## **Explicação Detalhada do Código**
+
+O arquivo principal de desenvolvimento do projeto é o **App.js**, onde toda a lógica da aplicação e a interface de usuário são construídas. Abaixo está a explicação detalhada de cada parte do código.
+
+### **Código Completo - App.js**
+
+```javascript
 // Importação de módulos necessários
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-React: O React é a biblioteca usada para construir interfaces de usuário. Aqui, o useState é importado para gerenciar o estado interno do app, permitindo que os dados (peso, altura e resultado) sejam atualizados e renderizados dinamicamente.
-Componentes React Native:
-StyleSheet: usado para criar estilos para o layout do app.
-Text: renderiza textos na tela.
-View: serve como contêiner para agrupar componentes.
-TextInput: permite a entrada de texto, onde o usuário insere peso e altura.
-Button: renderiza um botão para calcular o IMC.
-javascript
-Copiar código
-// Definição do componente principal
+```
+
+- **`import React, { useState } from 'react'`**: Importa o React e o **`useState`**, que é um hook usado para gerenciar o estado dentro do componente.
+- **`import { StyleSheet, Text, View, TextInput, Button }`**: Importa componentes nativos do React Native para criar a interface do usuário.
+
+---
+
+```javascript
+// Definição do componente principal da aplicação
 export default function App() {
-  const [peso, setPeso] = useState('');       // Estado para armazenar o peso inserido pelo usuário
-  const [altura, setAltura] = useState('');   // Estado para armazenar a altura inserida pelo usuário
-  const [resultado, setResultado] = useState(''); // Estado para armazenar o resultado do IMC
-export default function App(): Esta função exporta o componente principal do aplicativo. No React Native, a UI é construída com componentes, e essa função define a interface e lógica principal.
-useState(''): São definidos três estados:
-peso: armazenará o valor do peso que o usuário inserir.
-altura: armazenará a altura.
-resultado: armazenará o resultado do cálculo de IMC ou uma mensagem de erro.
-javascript
-Copiar código
-// Função para calcular o IMC com base no peso e altura
+  const [peso, setPeso] = useState('');       // Estado que armazena o valor do peso inserido
+  const [altura, setAltura] = useState('');   // Estado que armazena o valor da altura inserida
+  const [resultado, setResultado] = useState(''); // Estado que armazena o resultado do cálculo
+```
+
+- **`export default function App()`**: Define o componente principal da aplicação.
+- **`useState('')`**: O **`useState`** é usado para armazenar e atualizar os valores de **peso**, **altura** e **resultado**. O valor inicial de cada um é uma string vazia.
+
+---
+
+```javascript
+// Função para calcular o IMC
   function calcularIMC() {
-    if (peso && altura) { // Verifica se os campos de peso e altura foram preenchidos
-      const imc = (parseFloat(peso) / parseFloat(Math.pow(altura / 100, 2))).toFixed(2); // Calcula o IMC
-      setResultado(`Seu IMC é: ${imc}`); // Atualiza o resultado
+    if (peso && altura) {  // Verifica se os valores de peso e altura foram preenchidos
+      const imc = (parseFloat(peso) / parseFloat(Math.pow(altura / 100, 2))).toFixed(2);  // Fórmula de cálculo do IMC
+      setResultado(`Seu IMC é: ${imc}`);  // Atualiza o estado do resultado com o valor do IMC
     } else {
-      setResultado('Preencha os dados corretamente'); // Mensagem de erro se faltar algum dado
-      alert('Erro: Preencha todos os campos!'); // Exibe um alerta
+      setResultado('Preencha os dados corretamente');  // Exibe mensagem de erro se faltar algum dado
+      alert('Erro: Preencha todos os campos!');  // Exibe alerta de erro
     }
   }
-Função calcularIMC:
-Verifica se os valores de peso e altura foram preenchidos.
-parseFloat(): converte as strings dos inputs em números.
-Math.pow(altura / 100, 2): converte a altura de centímetros para metros e calcula o quadrado (necessário para a fórmula do IMC).
-toFixed(2): garante que o IMC seja exibido com duas casas decimais.
-Atualiza o estado resultado com o IMC calculado ou exibe uma mensagem de erro.
-javascript
-Copiar código
-// Estrutura da interface do app
+```
+
+- **`calcularIMC`**: Função que realiza o cálculo do IMC (peso dividido pela altura ao quadrado). Se os campos estiverem preenchidos corretamente, ela exibe o resultado; caso contrário, retorna uma mensagem de erro.
+- **`parseFloat(peso)`**: Converte o valor de peso (string) para número decimal.
+- **`Math.pow(altura / 100, 2)`**: Converte a altura de centímetros para metros e a eleva ao quadrado.
+
+---
+
+```javascript
+// Estrutura da interface do aplicativo
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calculadora de IMC</Text> {/* Título do app */}
+      <Text style={styles.title}>Calculadora de IMC</Text>  {/* Exibe o título da aplicação */}
       
-      {/* Campo para inserção do peso */}
+      {/* Campo de entrada para o peso */}
       <TextInput
         style={styles.input}
         placeholder='Peso (kg)'
@@ -97,7 +119,7 @@ Copiar código
         onChangeText={setPeso}
       />
 
-      {/* Campo para inserção da altura */}
+      {/* Campo de entrada para a altura */}
       <TextInput
         style={styles.input}
         placeholder='Altura (cm)'
@@ -106,27 +128,31 @@ Copiar código
         onChangeText={setAltura}
       />
 
-      {/* Botão para calcular o IMC */}
+      {/* Botão para realizar o cálculo */}
       <View style={styles.buttonContainer}>
         <Button title="Calcular IMC" onPress={calcularIMC} color="#4CAF50" />
       </View>
 
-      {/* Exibição do resultado */}
+      {/* Exibição do resultado do cálculo */}
       <Text style={styles.result}>
         {resultado}
       </Text>
     </View>
   );
 }
-Retorno da Interface:
-A interface é estruturada usando View, que agrupa todos os elementos visuais.
-TextInput: dois campos de entrada para peso e altura.
-Button: o botão aciona a função calcularIMC quando clicado.
-Text: exibe o resultado do IMC ou mensagens de erro.
-Estilos - StyleSheet
-javascript
-Copiar código
-// Definição de estilos
+```
+
+- **`<View>`**: Agrupa os componentes visuais da interface.
+- **`<TextInput>`**: Componente de entrada para capturar os valores de peso e altura. Ele utiliza o `keyboardType='numeric'` para garantir que o teclado numérico apareça.
+- **`<Button>`**: Botão que, ao ser pressionado, chama a função `calcularIMC`.
+- **`<Text>`**: Exibe o resultado do IMC ou uma mensagem de erro caso os dados estejam incompletos.
+
+---
+
+### **Estilos - StyleSheet**
+
+```javascript
+// Definição de estilos para a aplicação
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -164,17 +190,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-Estilos personalizados:
-container: define o layout geral, com alinhamento centralizado e cor de fundo clara.
-title: estilo para o título do app, com fonte grande e cor escura.
-input: define os campos de texto para peso e altura, com bordas, espaçamento e altura definidos.
-buttonContainer: ajusta o espaçamento do botão.
-result: estilo do texto que exibe o resultado do IMC, com tamanho de fonte maior e alinhamento central.
-Passo 5: Rodando o projeto com o Expo Tunnel
-Após a configuração e desenvolvimento, use o comando abaixo para rodar o aplicativo e acessá-lo de qualquer dispositivo via túnel público:
+```
 
-bash
-Copiar código
+- **`StyleSheet.create()`**: Define os estilos da aplicação. Cada propriedade de estilo corresponde a uma parte visual da interface, como o contêiner principal, o título, os campos de entrada e o resultado.
+- **`container`**: Estilo da `View` principal, define a disposição dos elementos (centralizados) e o fundo da tela.
+- **`input`**: Estilo dos campos de entrada de peso e altura, com borda arredondada e espaçamento.
+- **`result`**: Estilo do texto que exibe o resultado do cálculo do IMC.
+
+---
+
+## **Passo 4: Rodando o Projeto com o Expo Tunnel**
+
+Após finalizar a codificação, você pode rodar o projeto usando o Expo e disponibilizá-lo publicamente com um túnel:
+
+```bash
 npx expo start --tunnel
-Esse comando cria um túnel que permite acessar o projeto remotamente através do QR code que será gerado.
-Escaneie o QR code com o Expo Go app no seu dispositivo móvel para testar o app.
+```
+
+- Esse comando abre um túnel público para acessar o projeto a partir de qualquer dispositivo.
+- Ao rodar o comando, será exibido um QR code no terminal. Escaneie o código com o app **Expo Go** no seu dispositivo móvel.
+
+---
