@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import biscoito from "./assets/biscoito.png";
 import biscoitoAberto from "./assets/biscoitoAberto.png";
-
 const frasesDesmotivacionais = [
   "A vida é curta. Mas a fila do banco é longa.",
   "Se a vida te der limões, jogue de volta e exija chocolate.",
@@ -26,64 +25,77 @@ const frasesDesmotivacionais = [
   "Desistir é para os fracos. Então, seja forte e desista com estilo!",
   "Às vezes, tudo o que você precisa é de um bom sono... e um plano B."
 ];
-
 export default function App() {
   const [img, setImage] = useState(biscoito);
   const [frase, setFrase] = useState('');
+
+  function abrirBiscoito(){
+    const index = Math.floor(Math.random() * frasesDesmotivacionais.length);
+    //alert(frasesDesmotivacionais[index])
+    setImage(biscoitoAberto)
+    setFrase(frasesDesmotivacionais[index])
+  }
+  function fecharBiscoito(){
+    setImage(biscoito);
+    setFrase('');
+  }
+  
 
   return (
     <View style={styles.container}>
       <Image
         source={img}
+        style={styles.img}
       />
-      <Text> {frase} </Text>
-      <TouchableOpacity>
-        <View>
-            <Text>Clique no pitoco e teste a sua sorte!</Text>
+      <Text style={styles.textofrase}> {frase} </Text>
+      <TouchableOpacity style={styles.botao} onPress={abrirBiscoito}>
+        <View style={styles.btnArea}>
+          <Text style={styles.btnTexto}>Clique no pitoco e teste a sua sorte!</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <View>
-            <Text>Reiniciar</Text>
+      <TouchableOpacity style={[styles.botao, { marginTop: 15, borderColor: '#121212' }]} onPress={fecharBiscoito}>
+        <View style={styles.btnArea}>
+          <Text style={[styles.btnTexto, { color: 'green' }]}>Reiniciar</Text>
         </View>
       </TouchableOpacity>
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
+  container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  img:{
+  img: {
     width: 230,
     height: 230,
   },
-  textofrase:{
+  textofrase: {
     fontSize: 20,
     color: '#dd7b22',
     margin: 30,
     fontStyle: 'italic',
     textAlign: 'center'
   },
-  botao:{
+  botao: {
     width: 230,
     height: 50,
     borderColor: '#dd7b22',
     borderWidth: 2,
     borderRadius: 25
   },
-  btnArea:{
+  btnArea: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  btnTexto:{
+  btnTexto: {
     fontSize: 17,
     fontWeight: 'bold',
-    color: '#dd7b22'
+    color: '#dd7b22',
+    textAlign: 'center',
+
   }
 });
