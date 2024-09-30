@@ -2,7 +2,7 @@ import React from "react";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import SingnIn from "../pages/SignIn";
-import SingnUp  from "../pages/SingnUp";
+import SignUp  from "../pages/SignUp";
 
 const AuthStack = createNativeStackNavigator();
 
@@ -14,8 +14,8 @@ function AuthRoutes(){
                 component = {SingnIn}
             />
             <AuthStack.Screen 
-                name="SignIn"
-                component = {SingnIn}
+                name="SignUP"
+                component = {SignUp}
             />
 
         </AuthStack.Navigator>

@@ -1,5 +1,6 @@
 import React from "react";
 import { View, ActivityIndicator } from "react-native";
+import AuthRoutes from "./auth.routes";
 
 function Routes(){
     const loading = false;
@@ -7,7 +8,7 @@ function Routes(){
 
 
 return(
-    signed ? <View>Logado</View> : <View> Não Logado</View>
+    signed ? <View>Logado</View> : <AuthRoutes />
 )
 
 }

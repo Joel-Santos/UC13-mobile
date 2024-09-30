@@ -1,7 +1,7 @@
 import React from "react";
-import { View, ActivityIndicator } from "react-native";
+import { View, Text} from "react-native";
 
-export function SingnUp() {
+export default function SignUp() {
 
     return (
         <View>
