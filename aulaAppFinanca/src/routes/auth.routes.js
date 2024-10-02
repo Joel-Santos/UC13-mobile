@@ -14,7 +14,7 @@ function AuthRoutes(){
                 component = {SingnIn}
             />
             <AuthStack.Screen 
-                name="SignUP"
+                name="SignUp"
                 component = {SignUp}
             />
 

@@ -2,20 +2,27 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 
+import AuthProvider from './src/contexts/auth';
+
 export default function App() {
   return (
-   
-      <NavigationContainer>
-        <StatusBar 
-          barStyle="dark-content" 
+
+    <NavigationContainer>
+      <AuthProvider>
+
+        <StatusBar
+          barStyle="dark-content"
           backgroundColor='#f0f4ff'
-        
+
         />
-        <Routes/>
-      </NavigationContainer>
+        <Routes />
+
+      </AuthProvider>
+
+    </NavigationContainer>
 
 
-  
+
   );
 }
 
